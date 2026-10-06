@@ -1,0 +1,32 @@
+{
+  "name": "snakejev",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Classic Snake playable by human, Jev (via Vercel AI Gateway), BFS bot, or hybrid.",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint": "eslint src api tests scripts",
+    "format": "prettier --write .",
+    "simulate": "tsx scripts/simulate.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/gateway": "4.0.103",
+    "ai": "7.0.127"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "eslint": "^9.39.5",
+    "prettier": "^3.9.9",
+    "tsx": "^4.23.15",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.0",
+    "vitest": "^3.2.7"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/decide.ts": {
+      "maxDuration": 10
+    }
+  }
+}

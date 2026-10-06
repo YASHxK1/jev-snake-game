@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>SnakeJev — Snake steered by Jev</title>
+    <meta name="description" content="Classic Snake steered by AI — Jev or Laya via Vercel AI Gateway." />
+  </head>
+  <body>
+    <div id="app">
+      <header class="top">
+        <h1>🐍 SnakeJev</h1>
+        <span class="phase" id="phase">MENU</span>
+        <span class="hint">AI calls: <b id="dbg-calls">0</b> · est. cost <b id="dbg-cost">$0.000000</b> <span id="ai-active"></span></span>
+      </header>
+      <div class="layout">
+        <section>
+          <div id="board-wrap">
+            <canvas id="board" width="400" height="400"></canvas>
+            <div class="overlay" id="menu">
+              <h2>SnakeJev</h2>
+              <p class="hint">AI-driven only · Space pauses · Enter starts</p>
+              <button id="btn-start">Start game</button>
+            </div>
+            <div class="overlay hidden" id="gameover">
+              <h2 id="final-title">Game Over</h2>
+              <p>Score <b id="final-score">0</b> · Best <b id="final-best">0</b></p>
+              <button id="btn-restart">Play again (Enter)</button>
+            </div>
+            <div id="paused-badge" class="hidden">PAUSED — Space to resume</div>
+          </div>
+          <div class="hud">
+            <span>Score <b id="score">0</b></span>
+            <span>Best <b id="high">0</b></span>
+            <button id="btn-pause">Pause</button>
+            <button id="btn-resume" class="hidden">Resume</button>
+          </div>
+          <div class="modes">
+            <button id="mode-jev" class="active">Jev</button>
+            <button id="mode-laya">Laya</button>
+          </div>
+        </section>
+        <aside>
+          <div class="panel">
+            <h3>Settings</h3>
+            <div class="settings-grid">
+              <label>Tick ms<input id="set-tick" type="number" min="40" max="1000" step="10" /></label>
+              <label>Grid size<input id="set-grid" type="number" min="8" max="40" step="1" /></label>
+              <label>Confidence threshold<input id="set-conf" type="number" min="0" max="1" step="0.05" /></label>
+              <label>Decide every N ticks<input id="set-everyn" type="number" min="1" max="20" step="1" /></label>
+              <label class="check"><input id="set-trap" type="checkbox" /> trap-check question</label>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>AI debug (gateway evaluation model)</h3>
+            <div id="debug-body"><p class="hint">No Jev calls yet.</p></div>
+          </div>
+          <div class="panel">
+            <h3>Session comparison</h3>
+            <div id="stats-body"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
